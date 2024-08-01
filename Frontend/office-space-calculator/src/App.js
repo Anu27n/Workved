@@ -28,19 +28,27 @@ const initialAreas = {
 const App = () => {
   const [totalArea, setTotalArea] = useState(2000);
   const [areas, setAreas] = useState(initialAreas);
+  const [error, setError] = useState(false);
 
   const updateAreas = (type, value) => {
-    setAreas(prev => ({
-      ...prev,
+    const newAreas = {
+      ...areas,
       [type]: value
-    }));
+    };
+    const builtArea = Object.keys(newAreas).reduce((acc, key) => acc + newAreas[key] * areaValues[key], 0);
+    if (builtArea <= totalArea) {
+      setAreas(newAreas);
+      setError(false);
+    } else {
+      setError(true);
+    }
   };
 
   const builtArea = Object.keys(areas).reduce((acc, key) => acc + areas[key] * areaValues[key], 0);
   const availableArea = totalArea - builtArea;
 
   return (
-    <div className="container">
+    <div className={`container ${error ? 'error' : ''}`}>
       <AreaInput setTotalArea={setTotalArea} />
       <div className="content">
         <FlexBoxDisplay areas={areas} areaValues={areaValues} totalArea={totalArea} builtArea={builtArea} availableArea={availableArea} />
@@ -79,6 +87,10 @@ const App = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="built-available-area">
+        Built Area: {builtArea.toFixed(1)} sq ft<br />
+        Available Area: {availableArea.toFixed(1)} sq ft
       </div>
     </div>
   );

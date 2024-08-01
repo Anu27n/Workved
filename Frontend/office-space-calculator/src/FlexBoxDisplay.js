@@ -3,32 +3,37 @@ import './styles.css';
 
 const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea }) => {
   return (
-    <div className="right-panel">
-      <div className="area-info">
-        <p>Built Area: <span className="highlight">{builtArea.toFixed(1)}</span> sq ft.</p>
-        <p>Available Area: <span className="highlight">{availableArea.toFixed(1)}</span> sq ft.</p>
-      </div>
-      <div className="area-display">
-        {Object.keys(areas).map(key => (
-          areas[key] > 0 && (
+    <div>
+      <div className="flexbox-container">
+        {Object.keys(areas).map(type => {
+          const area = areas[type] * areaValues[type];
+          const percentage = (area / totalArea) * 100;
+          return (
             <div
-              key={key}
-              className={`box ${key}-box`}
-              style={{ flexGrow: (areas[key] * areaValues[key]) / totalArea, backgroundColor: `#${Math.floor(Math.random()*16777215).toString(16)}` }}
+              key={type}
+              className={`flexbox-item ${type}`}
+              style={{
+                flexBasis: `${percentage}%`,
+                height: '100%'
+              }}
             >
-              {key.charAt(0).toUpperCase() + key.slice(1)} Workstations
-              <br />
-              {(areas[key] * areaValues[key] / totalArea * 100).toFixed(1)}%
+              <span className="flexbox-text">
+                {type.charAt(0).toUpperCase() + type.slice(1)}<br />
+                {percentage.toFixed(2)}%
+              </span>
             </div>
-          )
-        ))}
-        {availableArea > 0 && (
-          <div className="box free-space-box" style={{ flexGrow: availableArea / totalArea, backgroundColor: '#cccccc' }}>
-            Free Space
-            <br />
-            {(availableArea / totalArea * 100).toFixed(1)}%
-          </div>
-        )}
+          );
+        })}
+        <div className="flexbox-item available" style={{ flexBasis: `${(availableArea / totalArea) * 100}%`, height: '100%' }}>
+          <span className="flexbox-text">
+            Available<br />
+            {((availableArea / totalArea) * 100).toFixed(2)}%
+          </span>
+        </div>
+      </div>
+      <div className="built-available-area">
+        Built Area: {builtArea.toFixed(1)} sq ft<br />
+        Available Area: {availableArea.toFixed(1)} sq ft
       </div>
     </div>
   );

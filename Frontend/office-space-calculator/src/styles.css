@@ -1,108 +1,116 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+/* styles.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
   }
   
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .container.error {
+    border: 2px solid lightcoral;
   }
   
-  .area-input-form {
-    margin: 20px 0;
-  }
-  
-  .area-input-form label {
-    font-size: 1.2em;
-    margin-right: 10px;
-  }
-  
-  .area-input-form input {
-    width: 80px;
-    padding: 5px;
-    margin-right: 10px;
+  .area-input {
+    margin-bottom: 20px;
   }
   
   .content {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
-  .left-panel {
-    width: 30%;
-    padding: 20px;
-    background-color: #f0f0f0;
-    overflow-y: auto;
-  }
-  
-  .right-panel {
-    width: 70%;
-    padding: 20px;
+  .flexbox-container {
+    width: 600px;
+    height: 400px;
+    background: linear-gradient(to bottom right, #f0f0f0, #ffffff);
     display: flex;
-    flex-direction: column;
-  }
-  
-  .section {
-    margin-bottom: 20px;
-  }
-  
-  .workspace, .cabins {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .workspace img, .cabins img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
-  }
-  
-  button.control-btn {
-    margin: 0 10px;
+    flex-wrap: nowrap;
+    margin-right: 20px;
     padding: 10px;
-    font-size: 16px;
-  }
-  
-  .area-info {
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-  
-  .area-info .highlight {
-    font-weight: bold;
-  }
-  
-  .area-display {
-    display: flex;
-    height: 60vh;
+    position: relative;
     border: 1px solid #ccc;
   }
   
-  .box {
+  .flexbox-item {
+    margin: 2px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 1.2em;
+    align-items: center;
+    font-size: 14px;
+    color: black;
     text-align: center;
   }
   
-  .free-space-box {
-    background-color: #cccccc;
+  .flexbox-text {
+    font-weight: bold;
   }
   
-  .sections {
-    width: 30%;
-  }
-  
-  .section {
-    margin-bottom: 20px;
-  }
-  
-  .section h3 {
+  .workspace,
+  .cabins,
+  .public-spaces {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
+  }
+  
+  .workspace img,
+  .cabins img,
+  .public-spaces img {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+  }
+  
+  .control-btn {
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 0 5px;
+  }
+  
+  .bold-text {
+    font-weight: bold;
+  }
+  
+  .built-available-area {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .flexbox-item.linear {
+    background-color: #4caf50;
+  }
+  
+  .flexbox-item.lType {
+    background-color: #2196f3;
+  }
+  
+  .flexbox-item.md {
+    background-color: #ff9800;
+  }
+  
+  .flexbox-item.manager {
+    background-color: #f44336;
+  }
+  
+  .flexbox-item.small {
+    background-color: #9c27b0;
+  }
+  
+  .flexbox-item.ups {
+    background-color: #3f51b5;
+  }
+  
+  .flexbox-item.bms {
+    background-color: #00bcd4;
+  }
+  
+  .flexbox-item.server {
+    background-color: #8bc34a;
+  }
+  
+  .flexbox-item.available {
+    background-color: #f0f0f0;
   }
   

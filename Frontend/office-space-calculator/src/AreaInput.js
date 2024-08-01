@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 const AreaInput = ({ setTotalArea }) => {
-  const [inputValue, setInputValue] = useState(2000);
+  const [inputValue, setInputValue] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTotalArea(Number(inputValue));
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    const area = parseInt(inputValue, 10);
+    if (!isNaN(area)) {
+      setTotalArea(area);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="area-input-form">
-      <label>
-        Enter Total Office Area (sq ft):
-        <input type="number" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-      </label>
-      <button type="submit">Set Area</button>
-    </form>
+    <div className="area-input">
+      <input 
+        type="number" 
+        value={inputValue} 
+        onChange={handleInputChange} 
+        placeholder="Enter total area (sq ft)"
+      />
+      <button onClick={handleSubmit}>Set Area</button>
+    </div>
   );
 };
 
 export default AreaInput;
+
