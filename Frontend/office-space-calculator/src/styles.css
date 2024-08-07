@@ -1,0 +1,116 @@
+/* styles.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .container.error {
+    border: 2px solid lightcoral;
+  }
+  
+  .area-input {
+    margin-bottom: 20px;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .flexbox-container {
+    width: 600px;
+    height: 400px;
+    background: linear-gradient(to bottom right, #f0f0f0, #ffffff);
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: 20px;
+    padding: 10px;
+    position: relative;
+    border: 1px solid #ccc;
+  }
+  
+  .flexbox-item {
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+  }
+  
+  .flexbox-text {
+    font-weight: bold;
+  }
+  
+  .workspace,
+  .cabins,
+  .public-spaces {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .workspace img,
+  .cabins img,
+  .public-spaces img {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+  }
+  
+  .control-btn {
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 0 5px;
+  }
+  
+  .bold-text {
+    font-weight: bold;
+  }
+  
+  .built-available-area {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .flexbox-item.linear {
+    background-color: #4caf50;
+  }
+  
+  .flexbox-item.lType {
+    background-color: #2196f3;
+  }
+  
+  .flexbox-item.md {
+    background-color: #ff9800;
+  }
+  
+  .flexbox-item.manager {
+    background-color: #f44336;
+  }
+  
+  .flexbox-item.small {
+    background-color: #9c27b0;
+  }
+  
+  .flexbox-item.ups {
+    background-color: #3f51b5;
+  }
+  
+  .flexbox-item.bms {
+    background-color: #00bcd4;
+  }
+  
+  .flexbox-item.server {
+    background-color: #8bc34a;
+  }
+  
+  .flexbox-item.available {
+    background-color: #f0f0f0;
+  }
+  
