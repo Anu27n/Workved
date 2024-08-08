@@ -57,16 +57,9 @@ const App = () => {
     <div className="container">
       <AreaInput setTotalArea={setTotalArea} />
       <div className="content">
-        <FlexBoxDisplay
-          areas={areas}
-          areaValues={areaValues}
-          totalArea={totalArea}
-          builtArea={builtArea}
-          availableArea={availableArea}
-        />
         <div className="sections">
           <div className="section">
-            <h3>Open Workspaces</h3>
+            <h3 className="section-heading">Open Workspaces</h3>
             <div className="workspace-row">
               {["linear", "lType"].map((type) => (
                 <div key={type} className="workspace">
@@ -93,7 +86,7 @@ const App = () => {
             </div>
           </div>
           <div className="section">
-            <h3>Cabins</h3>
+            <h3 className="section-heading">Cabins</h3>
             <div className="workspace-row">
               {["md", "manager", "small"].map((type) => (
                 <div key={type} className="workspace">
@@ -120,7 +113,7 @@ const App = () => {
             </div>
           </div>
           <div className="section">
-            <h3>Public Spaces</h3>
+            <h3 className="section-heading">Public Spaces</h3>
             <div className="workspace-row">
               {["ups", "bms", "server"].map((type) => (
                 <div key={type} className="workspace">
@@ -147,6 +140,13 @@ const App = () => {
             </div>
           </div>
         </div>
+        <FlexBoxDisplay
+          areas={areas}
+          areaValues={areaValues}
+          totalArea={totalArea}
+          builtArea={builtArea}
+          availableArea={availableArea}
+        />
       </div>
       {error && (
         <div className="error-message">

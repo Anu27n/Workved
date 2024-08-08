@@ -7,7 +7,6 @@ const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea
   const totalUsedArea = Object.keys(areas).reduce((acc, type) => acc + (areas[type] * areaValues[type]), 0);
   const availablePercentage = ((totalArea - totalUsedArea) / totalArea) * 100;
 
-  
   const renderFlexboxItems = () => {
     return Object.keys(areas).map(type => {
       const area = areas[type] * areaValues[type];
@@ -28,34 +27,39 @@ const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea
   };
 
   return (
-    <div className="flexbox-container">
-      {isEmpty ? (
-        <div
-          className="flexbox-item empty"
-          style={{
-            flexBasis: '100%'
-          }}
-        >
-          Available<br />
-          100%
-        </div>
-      ) : (
-        <>
-          {renderFlexboxItems()}
+    <div>
+      <div className="flexbox-container">
+        {isEmpty ? (
           <div
-            className="flexbox-item available"
+            className="flexbox-item empty"
             style={{
-              flexBasis: `${availablePercentage}%`
+              flexBasis: '100%'
             }}
           >
             Available<br />
-            {availablePercentage.toFixed(2)}%
+            100%
           </div>
-        </>
-      )}
+        ) : (
+          <>
+            {renderFlexboxItems()}
+            <div
+              className="flexbox-item available"
+              style={{
+                flexBasis: `${availablePercentage}%`
+              }}
+            >
+              Available<br />
+              {availablePercentage.toFixed(2)}%
+            </div>
+          </>
+        )}
+      </div>
+      <div className="dynamic-text">
+        <div id="available-space">Available Space: {availableArea}</div>
+        <div id="built-space">Built Space: {builtArea}</div>
+      </div>
     </div>
   );
 };
 
-export default FlexBoxDisplay; 
-
+export default FlexBoxDisplay;
