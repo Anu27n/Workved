@@ -29,4 +29,3 @@ const AreaInput = ({ setTotalArea }) => {
 };
 
 export default AreaInput;
-

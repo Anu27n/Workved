@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import AreaInput from './AreaInput';
-import FlexBoxDisplay from './FlexBoxDisplay';
-import './styles.css';
+import React, { useState } from "react";
+import AreaInput from "./AreaInput";
+import FlexBoxDisplay from "./FlexBoxDisplay";
+import "./styles.css";
 
 const areaValues = {
   linear: 23,
@@ -11,7 +11,7 @@ const areaValues = {
   small: 80,
   ups: 90,
   bms: 90,
-  server: 40
+  server: 40,
 };
 
 const initialAreas = {
@@ -22,7 +22,7 @@ const initialAreas = {
   small: 0,
   ups: 0,
   bms: 0,
-  server: 0
+  server: 0,
 };
 
 const App = () => {
@@ -33,9 +33,12 @@ const App = () => {
   const updateAreas = (type, value) => {
     const newAreas = {
       ...areas,
-      [type]: value
+      [type]: value,
     };
-    const builtArea = Object.keys(newAreas).reduce((acc, key) => acc + newAreas[key] * areaValues[key], 0);
+    const builtArea = Object.keys(newAreas).reduce(
+      (acc, key) => acc + newAreas[key] * areaValues[key],
+      0
+    );
     if (builtArea <= totalArea) {
       setAreas(newAreas);
       setError(false);
@@ -44,54 +47,112 @@ const App = () => {
     }
   };
 
-  const builtArea = Object.keys(areas).reduce((acc, key) => acc + areas[key] * areaValues[key], 0);
+  const builtArea = Object.keys(areas).reduce(
+    (acc, key) => acc + areas[key] * areaValues[key],
+    0
+  );
   const availableArea = totalArea - builtArea;
 
   return (
-    <div className={`container ${error ? 'error' : ''}`}>
+    <div className="container">
       <AreaInput setTotalArea={setTotalArea} />
       <div className="content">
-        <FlexBoxDisplay areas={areas} areaValues={areaValues} totalArea={totalArea} builtArea={builtArea} availableArea={availableArea} />
+        <FlexBoxDisplay
+          areas={areas}
+          areaValues={areaValues}
+          totalArea={totalArea}
+          builtArea={builtArea}
+          availableArea={availableArea}
+        />
         <div className="sections">
           <div className="section">
             <h3>Open Workspaces</h3>
-            {['linear', 'lType'].map(type => (
-              <div key={type} className="workspace">
-                <img src={`/${type}.png`} alt={`${type} Workstations`} />
-                <button className="control-btn" onClick={() => updateAreas(type, Math.max(areas[type] - 1, 0))}>-</button>
-                <span>{areas[type]}</span>
-                <button className="control-btn" onClick={() => updateAreas(type, areas[type] + 1)}>+</button>
-              </div>
-            ))}
+            <div className="workspace-row">
+              {["linear", "lType"].map((type) => (
+                <div key={type} className="workspace">
+                  <img src={`/${type}.png`} alt={`${type} Workstations`} />
+                  <div className="control-btn-box">
+                    <button
+                      className="control-btn"
+                      onClick={() =>
+                        updateAreas(type, Math.max(areas[type] - 1, 0))
+                      }
+                    >
+                      -
+                    </button>
+                    <span>{areas[type]}</span>
+                    <button
+                      className="control-btn"
+                      onClick={() => updateAreas(type, areas[type] + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="section">
             <h3>Cabins</h3>
-            {['md', 'manager', 'small'].map(type => (
-              <div key={type} className="cabins">
-                <img src={`/${type}.png`} alt={`${type} Cabin`} />
-                <button className="control-btn" onClick={() => updateAreas(type, Math.max(areas[type] - 1, 0))}>-</button>
-                <span>{areas[type]}</span>
-                <button className="control-btn" onClick={() => updateAreas(type, areas[type] + 1)}>+</button>
-              </div>
-            ))}
+            <div className="workspace-row">
+              {["md", "manager", "small"].map((type) => (
+                <div key={type} className="workspace">
+                  <img src={`/${type}.png`} alt={`${type} Cabin`} />
+                  <div className="control-btn-box">
+                    <button
+                      className="control-btn"
+                      onClick={() =>
+                        updateAreas(type, Math.max(areas[type] - 1, 0))
+                      }
+                    >
+                      -
+                    </button>
+                    <span>{areas[type]}</span>
+                    <button
+                      className="control-btn"
+                      onClick={() => updateAreas(type, areas[type] + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="section">
             <h3>Public Spaces</h3>
-            {['ups', 'bms', 'server'].map(type => (
-              <div key={type} className="workspace">
-                <img src={`/${type}.png`} alt={`${type} Room`} />
-                <button className="control-btn" onClick={() => updateAreas(type, Math.max(areas[type] - 1, 0))}>-</button>
-                <span>{areas[type]}</span>
-                <button className="control-btn" onClick={() => updateAreas(type, areas[type] + 1)}>+</button>
-              </div>
-            ))}
+            <div className="workspace-row">
+              {["ups", "bms", "server"].map((type) => (
+                <div key={type} className="workspace">
+                  <img src={`/${type}.png`} alt={`${type} Room`} />
+                  <div className="control-btn-box">
+                    <button
+                      className="control-btn"
+                      onClick={() =>
+                        updateAreas(type, Math.max(areas[type] - 1, 0))
+                      }
+                    >
+                      -
+                    </button>
+                    <span>{areas[type]}</span>
+                    <button
+                      className="control-btn"
+                      onClick={() => updateAreas(type, areas[type] + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      <div className="built-available-area">
-        Built Area: {builtArea.toFixed(1)} sq ft<br />
-        Available Area: {availableArea.toFixed(1)} sq ft
-      </div>
+      {error && (
+        <div className="error-message">
+          Error: The total built area exceeds the available area!
+        </div>
+      )}
     </div>
   );
 };
