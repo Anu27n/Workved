@@ -4,8 +4,6 @@ import './styles.css';
 const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea }) => {
  
   const isEmpty = Object.values(areas).every(value => value === 0);
-
-
   const totalUsedArea = Object.keys(areas).reduce((acc, type) => acc + (areas[type] * areaValues[type]), 0);
   const availablePercentage = ((totalArea - totalUsedArea) / totalArea) * 100;
 
