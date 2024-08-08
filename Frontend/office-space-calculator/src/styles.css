@@ -37,10 +37,9 @@ body {
   flex-wrap: wrap;
   width: 50%;
   height: 300px; /* Adjusted height */
-  background: none; /* Set to none */
+  background: white; /* Set to white */
   padding: 10px;
   border: none; /* Removed border */
-  position: relative;
 }
 
 .flexbox-item {
@@ -58,8 +57,6 @@ body {
 
 .flexbox-item.available {
   background-color: #f0f0f0;
-  width: 100%; /* Make available area take full width */
-  height: 100%; /* Make available area take full height */
 }
 
 .flexbox-item.linear { background-color: #4caf50; }
@@ -95,13 +92,20 @@ body {
   padding-bottom: 5px;
 }
 
-.workspace, .cabins {
+.workspace-row {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow-x: auto; /* Add horizontal scroll */
+}
+
+.workspace {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  flex: 0 0 auto; /* Ensure items don't shrink */
 }
 
-.workspace img, .cabins img {
+.workspace img {
   width: 120px; /* Increased size */
   height: 120px; /* Increased size */
   margin-right: 10px;
