@@ -2,14 +2,14 @@ import React from 'react';
 import './styles.css';
 
 const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea }) => {
-  // Check if areas are empty
+ 
   const isEmpty = Object.values(areas).every(value => value === 0);
 
-  // Calculate the percentage for each area type
+
   const totalUsedArea = Object.keys(areas).reduce((acc, type) => acc + (areas[type] * areaValues[type]), 0);
   const availablePercentage = ((totalArea - totalUsedArea) / totalArea) * 100;
 
-  // Define the flexbox item rendering logic
+  
   const renderFlexboxItems = () => {
     return Object.keys(areas).map(type => {
       const area = areas[type] * areaValues[type];
@@ -59,5 +59,5 @@ const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea
   );
 };
 
-export default FlexBoxDisplay;
+export default FlexBoxDisplay; 
 
