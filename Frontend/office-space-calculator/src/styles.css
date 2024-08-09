@@ -4,12 +4,13 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 10px; /* Adjust this value as needed */
 }
 
 /* Section Styles */
@@ -38,14 +39,14 @@ body {
 }
 
 .section {
-  margin-bottom: 10px; /* Adjusted margin */
-  padding: 5px 0; /* Adjusted padding */
+  margin-bottom: 20px; /* Increased margin for more distinct sections */
+  padding: 10px 0; /* Adjusted padding */
   border-bottom: 1px solid #ddd; /* Added bottom border */
   background-color: transparent; /* Removed background color */
 }
 
 .section h3 {
-  margin-bottom: 5px; /* Adjusted margin */
+  margin-bottom: 10px; /* Adjusted margin */
   font-size: 16px; /* Adjusted font size */
   padding-bottom: 5px;
 }
@@ -118,15 +119,17 @@ span {
   border: 1px solid #ccc; /* Added border */
   border-radius: 8px; /* Added border radius */
   position: fixed; /* Fixed position */
-  top: 100px; /* Adjusted top to create space above */
+  top: 172px; /* Adjusted top to create space above */
   left: 20px; /* Adjust as needed */
   box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 100; /* Subtle shadow */
 }
 
 .flexbox-item {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Ensure vertical alignment */
   font-size: 12px;
   color: black;
   text-align: center;
@@ -134,20 +137,27 @@ span {
   border: 1px solid #ccc; /* Thin border between flexboxes */
   box-sizing: border-box;
   position: relative;
+  background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradient background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.flexbox-item:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  background-color: #f0f0f0; /* Light grey background on hover */
 }
 
 .flexbox-item.available {
-  background-color: #f0f0f0;
+  background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradient background */
 }
 
-.flexbox-item.linear { background-color: #4caf50; }
-.flexbox-item.lType { background-color: #2196f3; }
-.flexbox-item.md { background-color: #ff9800; }
-.flexbox-item.manager { background-color: #f44336; }
-.flexbox-item.small { background-color: #9c27b0; }
-.flexbox-item.ups { background-color: #3f51b5; }
-.flexbox-item.bms { background-color: #00bcd4; }
-.flexbox-item.server { background-color: #8bc34a; }
+.flexbox-item.linear { background: linear-gradient(135deg, #a5d6a7, #66bb6a); }
+.flexbox-item.lType { background: linear-gradient(135deg, #90caf9, #42a5f5); }
+.flexbox-item.md { background: linear-gradient(135deg, #ffcc80, #ffa726); }
+.flexbox-item.manager { background: linear-gradient(135deg, #ef9a9a, #e57373); }
+.flexbox-item.small { background: linear-gradient(135deg, #ce93d8, #ab47bc); }
+.flexbox-item.ups { background: linear-gradient(135deg, #7986cb, #5c6bc0); }
+.flexbox-item.bms { background: linear-gradient(135deg, #80deea, #26c6da); }
+.flexbox-item.server { background: linear-gradient(135deg, #aed581, #8bc34a); }
 
 .flexbox-container.error {
   background-color: #ffcccc; /* Light red background */
@@ -176,6 +186,12 @@ span {
   color: red;
   font-weight: bold;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.error-message .warning-icon {
+  margin-right: 5px;
 }
 
 /* Dynamic Text Styles */
@@ -202,10 +218,146 @@ span {
 
 /* Scrollbar Styles */
 .sections-inner::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for WebKit browsers */
+  width: 8px; /* Custom scrollbar width */
+}
+
+.sections-inner::-webkit-scrollbar-thumb {
+  background-color: #888; /* Custom scrollbar color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.sections-inner::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker color on hover */
 }
 
 .sections-inner {
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: thin;  /* Firefox */
+  scrollbar-color: #888 #f0f0f0; /* Custom scrollbar color for Firefox */
+}
+
+/* Set Area Input Box Styles */
+.set-area-input {
+  width: 100%; /* Full width */
+  padding: 10px; /* Increased padding */
+  font-size: 16px; /* Larger font size */
+  border: 1px solid #ccc; /* Border */
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in width */
+  margin-bottom: 10px; /* Space below the input box */
+}
+
+.set-area-input.error {
+  border: 1px solid red; /* Red border for error state */
+  animation: shake 0.3s; /* Shake animation */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Button Styles */
+.area-input button {
+  padding: 10px 20px; /* Increased padding */
+  font-size: 16px; /* Larger font size */
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.area-input button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* New Button Styles */
+.set-area-button, .toggle-unit-button {
+  background-color: #ff0000; /* Red background for toggle button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.set-area-button:hover, .toggle-unit-button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sections {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .flexbox-container {
+    width: 90%;
+    left: 5%;
+    top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  .built-available-area, .dynamic-text {
+    width: 90%;
+    left: 5%;
+    top: auto;
+    position: static;
+    margin-top: 20px;
+  }
+  .set-area-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .set-area-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .unit-toggle {
+    margin-top: 10px;
+  }
+  
+  .unit-toggle label {
+    cursor: pointer;
+  }
+  .control-btn {
+    padding: 5px 10px; /* Adjusted size */
+    font-size: 16px; /* Adjusted size */
+    font-weight: bold;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+  }
+  
+  .toggle-unit-button {
+    background-color: #ff0000; /* Red background for toggle button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-unit-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+  }
 }

@@ -4,6 +4,7 @@ import FlexBoxDisplay from "./FlexBoxDisplay";
 import OpenWorkspaces from "./OpenWorkspaces";
 import Cabins from "./Cabins";
 import PublicSpaces from "./PublicSpaces";
+import { Tooltip } from "react-tooltip";
 import "./styles.css";
 
 const areaValues = {
@@ -75,9 +76,10 @@ const App = () => {
       </div>
       {error && (
         <div className="error-message">
-          Error: The total built area exceeds the available area!
+          Error: The total built area exceeds the available area! Please adjust the values.
         </div>
       )}
+      <Tooltip />
     </div>
   );
 };
