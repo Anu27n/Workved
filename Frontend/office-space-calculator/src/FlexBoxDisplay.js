@@ -26,9 +26,11 @@ const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea
     });
   };
 
+  const containerClassName = builtArea > totalArea ? 'flexbox-container error' : 'flexbox-container';
+
   return (
     <div>
-      <div className="flexbox-container">
+      <div className={containerClassName}>
         {isEmpty ? (
           <div
             className="flexbox-item empty"
@@ -55,8 +57,8 @@ const FlexBoxDisplay = ({ areas, areaValues, totalArea, builtArea, availableArea
         )}
       </div>
       <div className="dynamic-text">
-        <div id="available-space">Available Space: {availableArea}</div>
-        <div id="built-space">Built Space: {builtArea}</div>
+        <div id="available-space">Available Space: {availableArea} sq feet</div>
+        <div id="built-space">Built Space: {builtArea} sq feet</div>
       </div>
     </div>
   );

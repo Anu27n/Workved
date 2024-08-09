@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import AreaInput from "./AreaInput";
 import FlexBoxDisplay from "./FlexBoxDisplay";
+import OpenWorkspaces from "./OpenWorkspaces";
+import Cabins from "./Cabins";
+import PublicSpaces from "./PublicSpaces";
 import "./styles.css";
 
 const areaValues = {
@@ -58,87 +61,9 @@ const App = () => {
       <AreaInput setTotalArea={setTotalArea} />
       <div className="content">
         <div className="sections">
-          <div className="section">
-            <h3 className="section-heading">Open Workspaces</h3>
-            <div className="workspace-row">
-              {["linear", "lType"].map((type) => (
-                <div key={type} className="workspace">
-                  <img src={`/${type}.png`} alt={`${type} Workstations`} />
-                  <div className="control-btn-box">
-                    <button
-                      className="control-btn"
-                      onClick={() =>
-                        updateAreas(type, Math.max(areas[type] - 1, 0))
-                      }
-                    >
-                      -
-                    </button>
-                    <span>{areas[type]}</span>
-                    <button
-                      className="control-btn"
-                      onClick={() => updateAreas(type, areas[type] + 1)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="section">
-            <h3 className="section-heading">Cabins</h3>
-            <div className="workspace-row">
-              {["md", "manager", "small"].map((type) => (
-                <div key={type} className="workspace">
-                  <img src={`/${type}.png`} alt={`${type} Cabin`} />
-                  <div className="control-btn-box">
-                    <button
-                      className="control-btn"
-                      onClick={() =>
-                        updateAreas(type, Math.max(areas[type] - 1, 0))
-                      }
-                    >
-                      -
-                    </button>
-                    <span>{areas[type]}</span>
-                    <button
-                      className="control-btn"
-                      onClick={() => updateAreas(type, areas[type] + 1)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="section">
-            <h3 className="section-heading">Public Spaces</h3>
-            <div className="workspace-row">
-              {["ups", "bms", "server"].map((type) => (
-                <div key={type} className="workspace">
-                  <img src={`/${type}.png`} alt={`${type} Room`} />
-                  <div className="control-btn-box">
-                    <button
-                      className="control-btn"
-                      onClick={() =>
-                        updateAreas(type, Math.max(areas[type] - 1, 0))
-                      }
-                    >
-                      -
-                    </button>
-                    <span>{areas[type]}</span>
-                    <button
-                      className="control-btn"
-                      onClick={() => updateAreas(type, areas[type] + 1)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <OpenWorkspaces areas={areas} updateAreas={updateAreas} />
+          <Cabins areas={areas} updateAreas={updateAreas} />
+          <PublicSpaces areas={areas} updateAreas={updateAreas} />
         </div>
         <FlexBoxDisplay
           areas={areas}

@@ -1,10 +1,4 @@
-.section-heading {
-  background-color: rgba(220, 31, 31, 0.5); /* Grey with 50% transparency */
-  padding: 10px;
-  border-radius: 25px;
-  color: white; /* Optional: to make the text more readable */
-}
-
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
 }
@@ -18,6 +12,102 @@ body {
   justify-content: space-between;
 }
 
+/* Section Styles */
+.section-heading {
+  background-color: rgba(220, 31, 31, 0.5); /* Grey with 50% transparency */
+  padding: 10px;
+  border-radius: 25px;
+  color: white; /* Optional: to make the text more readable */
+}
+
+.sections {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Hide overflow */
+  margin-left: 50%; /* Adjusted to move left */
+  height: calc(100vh - 30px); /* Full height minus padding */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.sections-inner {
+  overflow-y: scroll; /* Enable vertical scrolling */
+  padding-right: 30px; /* Added right padding to create space for scrollbar */
+  overflow-x: auto;  /* Enable horizontal scrolling */
+  white-space: nowrap;  /* Prevent line breaks */
+}
+
+.section {
+  margin-bottom: 10px; /* Adjusted margin */
+  padding: 5px 0; /* Adjusted padding */
+  border-bottom: 1px solid #ddd; /* Added bottom border */
+  background-color: transparent; /* Removed background color */
+}
+
+.section h3 {
+  margin-bottom: 5px; /* Adjusted margin */
+  font-size: 16px; /* Adjusted font size */
+  padding-bottom: 5px;
+}
+
+/* Workspace Styles */
+.workspace-row {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.workspace {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  flex: 0 0 auto; /* Ensure items don't shrink */
+}
+
+.workspace img {
+  width: 120px; /* Increased size */
+  height: 120px; /* Increased size */
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Control Button Styles */
+.control-btn-box {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn {
+  padding: 5px 10px; /* Adjusted size */
+  font-size: 16px; /* Adjusted size */
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.control-btn:hover {
+  background-color: #e0e0e0;
+}
+
+span {
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+/* Flexbox Container Styles */
 .flexbox-container {
   display: flex;
   flex-wrap: wrap;
@@ -59,91 +149,12 @@ body {
 .flexbox-item.bms { background-color: #00bcd4; }
 .flexbox-item.server { background-color: #8bc34a; }
 
-.sections {
-  width: 75%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; /* Hide overflow */
-  margin-left: 50%; /* Adjusted to move left */
-  height: calc(100vh - 30px); /* Full height minus padding */
-  box-sizing: border-box; /* Ensure padding is included in the width */
+.flexbox-container.error {
+  background-color: #ffcccc; /* Light red background */
+  border: 1px solid red; /* Red border */
 }
 
-.sections-inner {
-  overflow-y: scroll; /* Enable vertical scrolling */
-  padding-right: 30px; /* Added right padding to create space for scrollbar */
-  overflow-x: auto;  /* Enable horizontal scrolling */
-  white-space: nowrap;  /* Prevent line breaks */
-}
-
-.section {
-  margin-bottom: 10px; /* Adjusted margin */
-  padding: 5px 0; /* Adjusted padding */
-  border-bottom: 1px solid #ddd; /* Added bottom border */
-  background-color: transparent; /* Removed background color */
-}
-
-.section h3 {
-  margin-bottom: 5px; /* Adjusted margin */
-  font-size: 16px; /* Adjusted font size */
-  padding-bottom: 5px;
-}
-
-.workspace-row {
-  display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  overflow-x: auto; /* Enable horizontal scrolling */
-}
-
-.workspace {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  flex: 0 0 auto; /* Ensure items don't shrink */
-}
-
-.workspace img {
-  width: 120px; /* Increased size */
-  height: 120px; /* Increased size */
-  margin-right: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.control-btn-box {
-  display: flex;
-  align-items: center;
-  background-color: #f9f9f9;
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.control-btn {
-  padding: 5px 10px; /* Adjusted size */
-  font-size: 16px; /* Adjusted size */
-  font-weight: bold;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 3px;
-  transition: background-color 0.3s;
-}
-
-.control-btn:hover {
-  background-color: #e0e0e0;
-}
-
-span {
-  font-size: 18px;
-  margin: 0 5px;
-}
-
-.bold-text {
-  font-weight: bold;
-}
-
+/* Built Available Area Styles */
 .built-available-area {
   margin-top: 20px;
   text-align: center;
@@ -160,23 +171,14 @@ span {
   box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
+/* Error Message Styles */
 .error-message {
   color: red;
   font-weight: bold;
   margin-top: 10px;
 }
 
-/* Hide scrollbar for WebKit browsers */
-.sections-inner::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for other browsers */
-.sections-inner {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
+/* Dynamic Text Styles */
 .dynamic-text {
   margin-top: 20px; /* Adjust based on the height of your flexbox container */
   padding: 10px;
@@ -196,4 +198,14 @@ span {
 
 .dynamic-text div {
   margin: 100px 0;
+}
+
+/* Scrollbar Styles */
+.sections-inner::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.sections-inner {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
